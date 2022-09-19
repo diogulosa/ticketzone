@@ -1,0 +1,20 @@
+.snackbar{
+    background-color: var(--black);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s all;
+}
+
+.snackbar.error{
+    background-color: red;
+    color: white
+}
+
+.snackbar .material-icons{
+    margin-left: 10px;
+}

@@ -1,0 +1,36 @@
+.data-list-control{position: relative;}
+.data-list-control label{
+    display: block;
+}
+
+.input-list{
+    font-size: 1.2rem;
+    font-weight: 600;
+    outline: none;
+    position: relative;
+}
+
+.datalist{
+    position: absolute;
+    width: 100%;
+    color: black;
+    appearance: none;
+    display: none;
+    z-index: 100;
+    background-color: white;
+}
+
+.datalist li{
+    display: block;
+}
+
+.datalist li a{
+    display: block;
+    padding: 20px;
+    cursor: pointer;
+    color: inherit
+}
+
+.datalist li a:hover{
+    background-color: var(--brand);
+}

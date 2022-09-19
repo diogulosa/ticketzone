@@ -1,0 +1,33 @@
+#download-mobile-app{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--lightgrey3);
+    z-index: 1001;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#download-mobile-app .text{
+    font-weight: 600;
+}
+
+#download-mobile-app img{
+    width: 150px;
+    height: auto;
+}
+
+#download-mobile-app .app-download-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#download-mobile-app .app-download-button .material-icons{
+    background-color: red;
+    padding: 20px;
+}

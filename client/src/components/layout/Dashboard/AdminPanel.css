@@ -1,0 +1,28 @@
+.sub-menu-container{
+    cursor: pointer;    
+}
+
+.sub-menu a{
+    display: block;
+    padding: 20px 20px;
+    border-bottom: 1px solid var(--black);
+    color: inherit;
+}
+
+.sub-menu a.active, .admin-menu .sub-menu a:hover{
+    background-color: var(--black);
+}
+
+.sub-menu a.active{
+    pointer-events: none;
+    cursor: none
+}
+
+.sub-menu-header{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--black);
+    font-weight: 600;
+}

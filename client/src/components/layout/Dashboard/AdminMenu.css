@@ -1,0 +1,6 @@
+.admin-menu{
+    width: 300px;
+    background-color: var(--grey);
+    color: white;
+    border-right: 1px solid var(--grey);
+}

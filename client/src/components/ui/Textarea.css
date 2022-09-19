@@ -1,0 +1,8 @@
+.fe-element textarea.textarea{
+    resize: none;
+    overflow-y: auto;
+    width: 100%;
+    height: 300px;
+    font-family: inherit;
+    background-color: transparent;
+}

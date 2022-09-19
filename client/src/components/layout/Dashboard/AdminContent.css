@@ -1,0 +1,12 @@
+.admin-content{
+    width: 100%;
+    background-color: white;
+}
+
+.admin-content h1{
+    margin-bottom: 30px;
+}
+
+.admin-content .inner{
+    padding: 30px 40px;
+}

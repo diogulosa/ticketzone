@@ -1,0 +1,126 @@
+#pricing-wrapper{
+    flex-wrap: wrap;
+}
+
+#pricing-wrapper h1{
+    margin-bottom: 30px;
+}
+
+#calc-earnings{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+#estimated-earnings{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+    #calc-earnings{
+        flex: 3;
+        margin-right: 80px;
+    }
+
+    #estimated-earnings{
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        width: 50%;
+        flex: 2;
+    }
+}
+
+#calc-earnings .container h1{
+    margin: 30px 0;
+    color: var(--brand);
+    text-align: center;
+}
+
+#calc-earnings .input-group select{
+    background-color: transparent;
+    padding: 10px;
+    border-bottom: 1px solid white;
+    width: 100%;
+    outline: none;
+    appearance: auto;
+    font-size: inherit;
+    color: white
+}
+
+#calc-earnings .input-group{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#calc-earnings .input-group label{
+    font-size: inherit;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+#calc-earnings .input-group .material-icons{
+    font-size: inherit;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+#calc-earnings .input-group input{
+    padding: 10px;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    outline: none;
+    font-size: inherit;
+    text-align: left;
+    width: 50%;
+    color: white
+}
+
+
+
+#estimated-earnings .inner{
+    width: 100%;
+    margin: 20px;
+    background-color: var(--brandBlueDark);
+    padding: 60px;
+    border-radius: 50%;
+}
+
+#estimated-earnings h2{
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#estimated-earnings h1{
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+}
+
+#estimated-earnings .earnings{
+    margin-bottom: 50px
+}
+
+#estimated-earnings .price{
+    text-align: center;
+}
+
+#estimated-earnings .price .heading{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+}
+
+#estimated-earnings .price p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white
+}

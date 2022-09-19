@@ -1,0 +1,271 @@
+:root{
+  --brand: #dcfc34;
+  --brandGrey: #d7d7d7;
+  --brandBlue: #014988;
+  --brandBlueDark: #013869;
+
+  --link:#0056eb;
+  --red:  #f42d01;
+  --black: #222;
+  --lightgrey: #f1f1f1;
+  --lightgrey2: #e8e8e8;
+  --lightgrey3: #d7d7d7;
+  --grey: #2f2f3d;
+  --grey2: #4b4c5a;
+  --green: #00ee67;
+  --cyan: #21ebe4;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+html, body, #root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:visited{
+  color: inherit
+}
+
+h1,h2,h3{
+  font-weight: 500;
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+}
+h1{
+  font-weight: 900;
+}
+
+p{
+  font-weight: 400;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+
+
+input[type="text"], input[type="url"], input[type="email"], input[type="password"], textarea{
+  outline: none;
+  appearance: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]{
+  -moz-appearance: textfield;
+  text-align: center;
+}
+
+.radio-group{
+  margin-bottom: 20px;
+}
+
+
+.full-w{
+  width: 100%;
+}
+
+.half-w{
+  width: 50%;
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}
+
+.mt-10{
+  margin-top: 10px;
+}
+
+.no-margin{
+  margin: 0;
+}
+
+.auth-form{
+  width: 100%;
+  padding: 30px;  
+}
+
+.auth-form h1{
+  margin-bottom: 30px;
+}
+
+.auth-form a{
+  color: blue;
+  text-decoration: underline;
+}
+
+.auth-form p.error{
+  left: 20px;
+  background-color: #ff4b4b;
+  color: white;
+  transition: all 0.2s ease-in;
+  padding: 10px;
+}
+
+@media screen and (min-width: 440px) {
+  form.auth-form{
+    width: 400px;
+    padding: 0;
+  }
+}
+
+
+
+
+
+.flex-container{
+  display: flex;
+  width: 100%;
+}
+
+.flex-container.centered{
+  align-items: center;
+  justify-content: center;
+}
+
+.f-columns{
+  flex-direction: column;
+}
+
+.f-rows{
+  flex-direction: row;
+}
+
+.flex-container.space-between{
+  justify-content: space-between;
+}
+
+.error{
+  color: red;
+}
+
+.success{
+  color: var(--green)
+}
+
+.tag-pills{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tag-pills li{
+  display: flex;
+  align-items: center;
+  width: auto;
+  margin-right: 20px;
+  color: var(--cyan);
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.tag-pills li::before{
+  content: "#";
+}
+
+.tag-pills li .material-icons{
+  margin-left: 10px;
+}
+
+.material-icons{
+  cursor: pointer;
+  font-size: inherit;
+}
+
+#modal{
+  position: relative;
+}
+
+.color-brand{
+  color: var(--brand)
+}
+
+.mr20, .mr-20{
+  margin-right: 20px;
+}
+
+a.disabled{
+  pointer-events: none;
+  background-color: transparent;
+  color: var(--lightgrey3)
+}
+
+.align-items-center{
+  align-items: center;
+}
+
+.p0{
+  padding: 0;
+}
+
+.inner{
+  padding: 30px;
+}
+
+.text-brand{
+  color: var(--brand)
+}
+
+.text-faded{
+  color: var(--lightgrey3)
+}
+
+.text-center{
+  text-align: center;
+}
+
+form p.message{
+  color: #01c034
+}
+
+a.has-icon{
+  display: inline-flex;
+  align-items: center;
+}
+
+a.has-icon span{
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.bg-grey{
+  background-color: var(--grey);
+  color: white
+}
+
+.bg-black{
+  background-color: var(--black);
+  color: white
+}

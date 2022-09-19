@@ -1,0 +1,64 @@
+.logo-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black
+}
+
+.logo{
+  position: absolute;
+  z-index: 101;
+  left: 20px;
+}
+
+.curtain{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: -20px;
+  z-index: 100;
+  background-color: var(--brand);
+}
+
+.logo-text{
+  position: absolute;
+  left: 32px;
+}
+
+@keyframes Logo-spin {
+    0% {
+        opacity: 0;
+        font-size: 0rem;
+        transform: rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        font-size: 2.5rem;
+    }
+    100%{
+        opacity: 1;
+        font-size: 1.2rem;
+        transform: rotate(1800deg);
+    }
+}
+
+@keyframes text-slide {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+  @media (prefers-reduced-motion: no-preference) {
+    .logo-text{ animation:  text-slide 3s ease-in-out;}
+    .logo {
+      animation: Logo-spin 2s ease-out;
+    }
+  }

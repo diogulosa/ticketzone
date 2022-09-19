@@ -1,0 +1,75 @@
+.fe-element{
+    padding: 10px;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    position: relative;
+    transition: all 0.5s;
+}
+
+.fe-element label{
+    display: block;
+    font-size: 0.8rem;
+    color: grey;
+    margin-bottom: 10px;
+    transition: all 0.5s;
+}
+
+.fe-element input{
+    display: block;
+    font-size: inherit;
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.fe-element input[type=date]{
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.fe-element.half-w{
+    width: calc(50% - 20px);
+    margin-right: 20px;
+}
+
+.fe-element.half-w:last-child{
+    width: 50%;
+    margin-right: 0;
+}
+
+.fe-element.focused{
+    border-color: blue;
+    transition: all 0.5s;
+}
+
+.fe-element.focused label{
+    color: blue;
+    transition: all 0.5s;
+}
+
+.fe-element.required{
+    border-color: red;
+    transition: all 0.5s;
+}
+
+.fe-element.required label{
+    color: red;
+    transition: all 0.5s;
+}
+
+.fe-element input[type="number"]{
+    text-align: left;
+    outline: none;
+}
+
+.fe-element select{
+    outline: none;
+}
+
+.hasError{
+    border-color: red;
+}
+
+.hasError label{
+    color: red
+}

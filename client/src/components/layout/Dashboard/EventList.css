@@ -1,0 +1,73 @@
+.events-list-container{
+    width: 800px;
+}
+
+.events-list-header ul{
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    background-color: var(--lightgrey2);
+}
+
+.events-list-container .event-list-item{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--lightgrey2);
+    cursor: pointer;
+    position: relative;
+}
+
+.events-list-container .event-list-item:hover{
+    box-shadow: 5px 5px 5px var(--lightgrey);
+}
+
+
+.events-list-container .event-list-item .item-title, .events-list-header ul .item-title{
+    width: 30%;
+    font-weight: 500;
+}
+
+.events-list-container .event-list-item .item-date, .events-list-header ul .item-date{
+    width: 20%;
+    text-align: center;
+}
+
+.events-list-container .event-list-item .item-status, .events-list-header ul .item-status{
+    width: 45%;
+    text-align: center;
+}
+
+.events-list-container .event-list-item .item-options{
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.events-list-container .event-list-item .item-options:hover{
+    background-color: var(--lightgrey2);
+}
+
+.event-list-options{
+    position: absolute;
+    right: -100px;
+    top: -40%;
+    z-index: 100;
+    width: 100px;
+    display: none;
+}
+
+.event-list-options li a{
+    color: white;
+    display: block;
+    padding: 10px 20px;
+    min-width: 150px;
+    text-align: center;
+    background-color: var(--black)!important;
+}
+
+.event-list-options li a:hover{
+    color: black;
+    background-color: var(--brand)!important;
+}

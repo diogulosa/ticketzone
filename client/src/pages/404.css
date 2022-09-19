@@ -1,0 +1,23 @@
+#page-not-found h2 a{
+    color: var(--brandBlue);
+    margin-left: 0;
+    transition: all 0.5s
+}
+
+#page-not-found h2 a:hover{
+    margin-left: 5px;
+    transition: all 0.5s
+}
+
+#page-not-found .link{
+    display: flex;
+    margin-left: 0;
+    transition: all 0.2s
+}
+
+#page-not-found .link:hover{
+    margin-left: -5px;
+    transition: all 0.2s
+}
+
+

@@ -1,0 +1,55 @@
+.site-header-simple{
+    height: 60px;
+    background-color: var(--grey);
+    color: var(--brand);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header-simple a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--brand);
+}
+
+.site-header-simple .brand a{
+    color: var(--brand);
+    font-size: 1.2rem;
+}
+
+.site-header-simple .brand a:hover{
+    color: white
+}
+
+.site-header-simple .link-item:hover{
+    background-color: var(--brand);
+    color: white
+}
+
+.site-header-simple .links, .site-header-simple .brand{
+    display: flex;
+}
+
+.site-header-simple .links .link-item{
+    cursor: pointer;
+    position: relative;
+}
+
+.site-header-simple .links .avatar{
+    margin-right: 10px;
+}
+
+.site-header-simple .links #user{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-right: 10px;
+    color: white;
+    border-color: transparent;
+}

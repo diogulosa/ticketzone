@@ -1,0 +1,62 @@
+.btn:disabled,
+.btn[disabled], .btn.prev[disabled], .btn.next[disabled]{
+    border: 1px solid var(--lightgrey3);
+    background-color: var(--lightgrey2);
+    color: grey;
+    pointer-events: none;
+}
+
+.btn{
+    display: block;
+    background-color: var(--brand);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--black);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: var(--black);
+    color: white;
+}
+
+.btn-circle{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 500;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: baseline;
+    justify-content: center;
+    background-color: var(--brandBlue);
+    color: white
+}
+
+.btn-circle .material-icons{
+    font-size: 0.7em;
+}
+
+
+.btn.half-w{
+    width: 50%;
+    margin-right: 20px;
+}
+
+.btn.half-w:nth-child(2){
+    margin-right: 0!important;
+}
+
+.btn-brand{
+    background-color: var(--brand);
+    color: var(--black)
+}
+
+.btn-brandBlueDark{
+    background-color: var(--brandBlueDark);
+    color: white
+}

@@ -1,0 +1,104 @@
+.card{
+    max-width: 100%;
+    margin: 15px 10px;
+    overflow: hidden;
+    color: var(--black)!important;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card .media{
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+    .card{
+        max-width: calc(50% - 20px);
+    }
+    .card .media{
+        max-height: 200px;
+        overflow: hidden;
+    }
+    
+}
+
+@media screen and (min-width: 1200px){
+    .card{
+        max-width: calc(33.3333333% - 20px);
+    }
+    .card .media{
+        max-height: 200px;
+        overflow: hidden
+    }
+}
+
+@media screen and (min-width: 2400px){
+    .card{
+        max-width: calc(25% - 20px);
+    }
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px black;
+}
+
+.card .category{
+    color: var(--cyan);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.card .media img{
+    width: 100%;
+    height: auto;
+}
+
+.card .info{
+    padding: 20px;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s;
+}
+
+.card .info:hover{
+    background-color: rgba(0,0,0,0);
+    transition: all 0.4s;
+}
+
+.card .info p{
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.card .info .title{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.card .info .bottom .date, .card .info .bottom .location{
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+}
+
+.card .info .bottom{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    padding-right: 30px;
+    left: 20px;
+}
+
+.card .info a{
+    color: inherit!important
+}

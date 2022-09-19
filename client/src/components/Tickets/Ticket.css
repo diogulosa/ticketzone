@@ -1,0 +1,79 @@
+.ticket{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 30px;
+    border: 1px solid var(--lightgrey3);
+    min-height: 400px;
+    min-width: 800px;
+}
+
+.ticket .left, .ticket .right{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.ticket .left{
+    width: 70%;
+    position: relative;
+}
+
+.ticket .left .order-info{
+    margin-right: 50px;
+    width: 70%
+}
+
+.ticket .left .name-info{
+    width: 30%;
+}
+
+.ticket .left footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.ticket .left .p-header{
+    color: var(--lightgrey3)
+}
+
+.ticket .right{
+    position: relative;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket .right .event-img-container{
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.ticket .right .event-img-container img{
+    width: 100%;
+    height: auto;
+}
+
+
+.ticket .right .event-qr-container{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    right: 0
+}
+
+.ticket .right .event-qr-container p{
+    margin-top: 10px;
+}

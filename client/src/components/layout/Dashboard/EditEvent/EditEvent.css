@@ -1,0 +1,37 @@
+.edit-event-container{
+    display: flex;
+    height: 100%;
+}
+
+.edit-event-menu{
+    width: 300px;
+    background-color: var(--grey)  
+}
+
+/* .edit-event-menu ul{}
+
+.edit-event-menu ul li{
+    border-bottom: 1px solid var(--brand2);
+} */
+
+.edit-event-menu ul li a{
+    display: block;
+    padding: 20px 30px;
+    color: white;
+    border-bottom: 1px solid var(--black);
+}
+
+.edit-event-menu ul li a:hover{
+    background-color: var(--black);
+}
+
+.edit-event-menu ul li a.active{
+    background-color: var(--black); 
+    pointer-events: none;
+}
+
+.edit-event-container main{
+    width: 600px;
+    padding: 30px 50px;
+
+}

@@ -1,0 +1,168 @@
+.breadcrumbs{
+    width: 100%;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 20px 10px 0 10px;
+    padding-bottom: 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.site-footer{
+    display: none;
+}
+
+@media screen and (min-width: 1000px) {
+    .breadcrumbs{
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .site-footer{
+        display: block;
+    }
+}
+
+.se-main{
+    order: 2;
+    padding: 20px;
+}
+
+
+.se-main .media{
+    width: 100%;
+    overflow: hidden;
+}
+
+.se-main .media img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.se-main section{
+    padding: 10px 0;
+    border-radius: 20px;
+}
+
+.se-main section h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+
+/*info*/
+
+.aside{
+    order: 1;
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.aside .spread{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aside .section{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.aside section p{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.aside .section h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--brand);
+}
+
+.aside .section:last-of-type{
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+
+.aside .btn{
+    display: none;
+    width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+    .aside .btn{
+        display: block;
+    }
+}
+
+
+.event-details-bg-image{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    z-index: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+  
+.event-details-bg-image img{
+    width: 150vw;
+    height: auto;
+    filter: blur(50px);
+}
+
+@media screen and (min-width: 999px) {
+    .se-main{
+        order: 1;
+        flex: 2;
+        width: 100%;
+        margin-right: 30px;
+    }
+    .aside{
+        order: 2;
+        flex: 1;
+        padding: 20px;
+        color: white!important;
+        position: -webkit-sticky;
+        position: sticky;
+        background-color: var(--black);
+        top: 125px
+    }
+
+    .aside .section h3{
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--brand)
+    }
+}
+
+#buy-tickets{
+    padding: 20px;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--black);
+}
+
+#buy-tickets .btn{
+    background-color: var(--red);
+    color: white;
+    width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+    #buy-tickets{display: none;}
+}
+
+

@@ -1,0 +1,10 @@
+.radio-btn-container{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.radio-btn-container label{
+    display: inline-block;
+    margin-left: 10px;
+}
