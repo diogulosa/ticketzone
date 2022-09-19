@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import {PayPalButton} from 'react-paypal-button-v2'
 import Button from '../../components/ui/Button'
 
 import './BuyTickets.css'
@@ -17,7 +16,6 @@ function BuyTickets() {
     const {userData} = useAuthState()
     const [step, setStep] = useState(1)
     const [event, setEvent] = useState({})
-    const [sdkReady, setSdkReady] = useState(false)
     const params = useParams()
     const navigate = useNavigate()
     const eventId = params.id
@@ -39,22 +37,6 @@ function BuyTickets() {
         }
         getEventById(eventId)
     }, [eventId])
-
-    useEffect(() => {
-      async function addPayPalScript(){
-        const res = await fetch('/config/paypal')
-        const {clientId} = await res.json()
-        const script = document.createElement('script')
-        script.type = 'text/javascript'
-        script.src = "https://www.paypal.com/sdk/js?client-id=" + clientId
-        script.async = true
-        script.onload = () => {
-            setSdkReady(true)
-        }
-        document.body.appendChild(script)
-      }
-      addPayPalScript()
-    }, [])
     
 
     async function createOrder(resultData){
@@ -86,10 +68,7 @@ function BuyTickets() {
             //createOrder()
         }
     }
-
-    function paymentSuccessHandler(paymentResult){
-        createOrder(paymentResult)
-    }   
+ 
 
     return (
         <div className='site-wrapper bg-black'>
@@ -114,7 +93,7 @@ function BuyTickets() {
             <div className='f-columns'>
                 {step === 1 && <SelectTickets location={event.city + ', ' + event.country} imgSrc={event.image} ticketName={event.ticketName} title={event && event.title} date={event && new Date(event.dateStart).toDateString()} time={event && event.timeStart} price={event.ticketPrice} onClickMinus={e => setNumberOfProducts(numberOfProducts - 1)} ticketCount={numberOfProducts} onClickPlus={e => setNumberOfProducts(numberOfProducts + 1)} disableMinus={numberOfProducts > 0 ? false : true} />}
                 {step === 2 && <BuyerDetails  />}
-                {step === 3 && <CheckOut eventDate={new Date(event.dateStart).toDateString()} image={event.image} ticketName={event.ticketName} eventTitle={event.title} ticketQty={numberOfProducts} ticketPrice={commafy(event.ticketPrice)} totalAmount={commafy(numberOfProducts * Number(event.ticketPrice))}>{sdkReady && numberOfProducts * Number(event.ticketPrice) !== 0 && <PayPalButton amount={numberOfProducts * Number(event.ticketPrice)} onSuccess={paymentSuccessHandler}/>}</CheckOut>}
+                {step === 3 && <CheckOut eventDate={new Date(event.dateStart).toDateString()} image={event.image} ticketName={event.ticketName} eventTitle={event.title} ticketQty={numberOfProducts} ticketPrice={commafy(event.ticketPrice)} totalAmount={commafy(numberOfProducts * Number(event.ticketPrice))}></CheckOut>}
             </div>
             
             
