@@ -6,7 +6,7 @@
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js",
-    "build": "npm run build --prefix client",
+    "build": "npm install --prefix client && npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/diogolosa77/ticketzone/issues"
   },
-  "homepage": "https://github.com/diogolosa77/ticketzone#readme"
+  "homepage": "https://github.com/diogolosa77/ticketzone#readme",
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  }
 }
