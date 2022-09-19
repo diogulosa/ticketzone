@@ -15,7 +15,6 @@ import 'material-icons/iconfont/material-icons.css';
 import './index.css';
 import WhyUs from './pages/WhyUs';
 import EventList from './components/layout/Dashboard/EventList';
-import BuyTickets from './pages/BuyTickets';
 import ContactInfo from './components/layout/Dashboard/ContactInfo';
 import PageNotFound from './pages/404';
 import EditEvent from './components/layout/Dashboard/EditEvent/EditEvent';
