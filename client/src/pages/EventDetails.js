@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Page from '../components/layout/Page'
 import SingleEvent from '../components/Events/SingleEvent'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import { arrayBufferToBase64 } from '../utils'
 
@@ -9,7 +9,6 @@ function EventDetails() {
 
   const [event, setEvent] = useState()
   let {id} = useParams()
-  const navigate = useNavigate()
 
   async function getEventById(id){
     let res = await fetch('/events/' + id)
@@ -33,7 +32,7 @@ function EventDetails() {
   return (
     <>
     <Page className="bg-black" footer={true} >
-      {event ? <SingleEvent id={id} image={event.image} ticketName={event.ticketName} venue={event.venue} address={event.address} title={event.title} date={new Date(event.dateStart).toDateString()} time={event.timeStart} location={`${event.city}, ${event.country.name}`} price={event.ticketPrice} description={event.description} organizer={event.organizer} tags={event.tags} onClickBuy={e => navigate('/event/' +  id + '/order')}/> : <LoadingSpinner/>}
+      {event ? <SingleEvent id={id} image={event.image} ticketName={event.ticketName} venue={event.venue} address={event.address} title={event.title} date={new Date(event.dateStart).toDateString()} time={event.timeStart} location={`${event.city}, ${event.country.name}`} price={event.ticketPrice} description={event.description} organizer={event.organizer} tags={event.tags} onClickBuy={e => e.preventDefault()}/> : <LoadingSpinner/>}
     </Page>
     </>
   )

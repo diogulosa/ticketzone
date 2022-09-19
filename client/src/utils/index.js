@@ -72,9 +72,7 @@ export function listenToScroll(){
           var base64Flag = `data:${image.contentType};base64,`;
           var imgStr = arrayBufferToBase64(image.data.data)
           data.event.image = base64Flag + imgStr
-          if(typeof next === 'function'){
-            next()
-          }
+          next(data.event)
         }
       }
     } catch (error) {

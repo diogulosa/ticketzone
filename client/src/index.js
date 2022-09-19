@@ -41,7 +41,6 @@ root.render(
             <Route path="/pricing" element={<Pricing/>} />
             <Route path="/events/create"  element={<CreateEvent/>} />
             <Route path="/event/:id" element={<EventDetails/>} />
-            <Route path='event/:id/order' element={<BuyTickets />} />
             <Route path="/dashboard" element={<Dashboard />} >  
               <Route path='my-events' element={<EventList />} />
               <Route path='event/:id/edit' element={<EditEvent />}>
