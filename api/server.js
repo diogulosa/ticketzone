@@ -35,10 +35,10 @@ app.use('/categories', categoryRoutes)
 app.use('/orders', orderRoutes)
 app.use('/countries', countryRoutes)
 app.use('/tickets', ticketRoutes)
-app.get('/config/paypal', (req, res) => res.json({clientId: process.env.PAYPAL_CLIENT_ID}))
+//app.get('/config/paypal', (req, res) => res.json({clientId: process.env.PAYPAL_CLIENT_ID}))
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(process.cwd(), 'client','build')))
+    app.use(express.static(path.join(process.cwd(), 'front','build')))
     app.get('*', (req, res) => {        
         res.sendFile(path.join(process.cwd(), 'client','build', 'index.html'))
     })
