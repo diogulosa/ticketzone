@@ -28,9 +28,12 @@ router.get('/', async (req, res) => {
             let catId = doc.category
             await Category.findByIdAndUpdate(catId, {$inc: {count: -1}})
         }
+        let country = await Country.findById(item.address.country)
+        let {_id, title, category, tags, organizer, address, dateStart, timeStart, ticketName, ticketPrice, image, description} = item
+        events.push({_id, title, category, tags, address,  organizer, dateStart, timeStart, ticketName, ticketPrice, country: country.name, image, description})
     }
     if(docs){
-        res.json({success: true, events: docs})
+        res.json({success: true, events})
     }else{
         res.json({success: false, message: 'No events yet'})
     }
@@ -47,12 +50,9 @@ router.get('/by-category/:catId', async (req, res) => {
         if(docs.length > 0){
             for(let item of docs){
                 let category = await Category.findById(item.category)
-                let address = item.address.address
-                let country = await Country.findById(address.country)
-                let {name} = country
-                let city = item.address.city
-                let {_id, title, image, dateStart} = item
-                events.push({_id, title, image, dateStart, city, category: category.name, country: name})
+                let country = await Country.findById(item.address.country)
+                let {_id, title, image, dateStart, address} = item
+                events.push({_id, title, image, dateStart, address, category: category.name, country: country.name})
             }
             return res.status(200).json({success: true, events: events})
         }else{
