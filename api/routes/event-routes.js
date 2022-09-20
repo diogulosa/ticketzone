@@ -18,7 +18,7 @@ const upload = multer({ dest: pathToUpLoadFolder})
 router.get('/', async (req, res) => {
     let events = []
     //consultar todos os eventos   
-    let docs = await Event.find().where({status: 'active'})
+    let docs = await Event.find().where({status: 'active'}).populate('address')
     //Actualizar status conforme data
     for(let item of docs){
         var finished = isDatePassed(item.dateStart)
@@ -28,15 +28,14 @@ router.get('/', async (req, res) => {
             await Category.findByIdAndUpdate(catId, {$inc: {count: -1}})
         }
     }
-    docs = await Event.find().where({status: 'active'}).sort({dateStart: 'desc'})
     for(let item of docs){
-        let address = await Address.findById(item.address)
+        let address = item.address.address
         let category = await Category.findById(item.category)
         if(address){
             let country = await Country.findById(address.country)
             if(country){
                 let {_id, title, image, dateStart, timeStart,organizer} = item
-                events.push({_id, title, category: category.name, image, dateStart, organizer, timeStart, venue: address.name, address: address.address, city: address.city, country: country.name})
+                events.push({_id, title, category: category.name, image, dateStart, organizer, timeStart, venue: address.name, address, city: address.city, country: country.name})
             }
             
         }
@@ -55,18 +54,16 @@ router.get('/by-category/:catId', async (req, res) => {
     let docs
     let events = []
     if(catId){
-        docs = await Event.find().where({status: 'active', category: catId})
+        docs = await Event.find().where({status: 'active', category: catId}).populate('address')
         if(docs.length > 0){
             for(let item of docs){
                 let category = await Category.findById(item.category)
-                let address = await Address.findById(item.address)
-                if(address){
-                    let country = await Country.findById(address.country)
-                    let {name} = country
-                    let { city } = address
-                    let {_id, title, image, dateStart} = item
-                    events.push({_id, title, image, dateStart, city, category: category.name, country: name})
-                }
+                let address = item.address.address
+                let country = await Country.findById(address.country)
+                let {name} = country
+                let city = item.address.city
+                let {_id, title, image, dateStart} = item
+                events.push({_id, title, image, dateStart, city, category: category.name, country: name})
             }
             return res.status(200).json({success: true, events: events})
         }else{

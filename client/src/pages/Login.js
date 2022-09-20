@@ -64,8 +64,7 @@ function Login(props) {
       setMessage(location.state.message)
     }else{
       if(userData.loggedIn) {
-        if(document.referrer) navigate(-1)
-        navigate('/')
+        navigate(-1)
       }
     }
     

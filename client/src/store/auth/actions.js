@@ -1,5 +1,3 @@
-import { createCookie, deleteCookie } from "../../utils";
-
 export async function loginUser(dispatch, loginPayload) {
 
     const requestOptions = {
@@ -16,7 +14,6 @@ export async function loginUser(dispatch, loginPayload) {
       if (data.success) {
         dispatch({ type: 'LOGIN_SUCCESS', payload: data });
         localStorage.setItem('currentUser', JSON.stringify({user: data.user}));
-        createCookie(data.user.email, 30)
         return data
       }
    
@@ -30,5 +27,4 @@ export async function loginUser(dispatch, loginPayload) {
   export async function logout(dispatch) {
     dispatch({ type: 'LOG_OUT' });
     localStorage.removeItem('currentUser');
-    deleteCookie()
   }
