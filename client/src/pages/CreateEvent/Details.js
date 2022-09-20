@@ -10,11 +10,7 @@ function Details({children, onChangeDescription, descValue, onChangeURL, valueUR
         <h2 className='heading'>Details</h2>
         <h3>Main image</h3>
         <p>This is the first image attendees will see at the top of your listing. Use a high quality image: 2000x1500px (4:3 ratio). JPEG or PNG, no larger than 10MB</p>
-        <FileUpload 
-          handleDrop={handleImageDrop} 
-          handleInputFileClick={handleInputFileClick} 
-          handleInputChange={handleInputChange} 
-          >
+        <FileUpload  handleDrop={handleImageDrop} handleInputFileClick={handleInputFileClick} handleInputChange={handleInputChange}>
             {children}
         </FileUpload>
         <h3>Description</h3>

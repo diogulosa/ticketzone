@@ -135,8 +135,6 @@ function CreateEvent() {
     }
 
     useEffect(() => {
-        // var values = Object.values(formData)
-        // console.log(values[0]);
         disableNext()
       if(!userData.auth_token) navigate('/log-in')
     }, [navigate, userData, disableNext])

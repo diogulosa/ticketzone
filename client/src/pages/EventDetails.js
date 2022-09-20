@@ -32,7 +32,7 @@ function EventDetails() {
   return (
     <>
     <Page className="bg-black" footer={true} >
-      {event ? <SingleEvent id={id} image={event.image} ticketName={event.ticketName} venue={event.venue} address={event.address} title={event.title} date={new Date(event.dateStart).toDateString()} time={event.timeStart} location={`${event.city}, ${event.country.name}`} price={event.ticketPrice} description={event.description} organizer={event.organizer} tags={event.tags} onClickBuy={e => e.preventDefault()}/> : <LoadingSpinner/>}
+      {event ? <SingleEvent id={id} image={event.image} ticketName={event.ticketName} venue={event.venue} address={event.address} title={event.title} date={new Date(event.dateStart).toDateString()} time={event.timeStart} location={`${event.city}, ${event.country.name}`} price={event.ticketPrice} description={event.description} organizer={event.organizer} tags={event.tags} /> : <LoadingSpinner/>}
     </Page>
     </>
   )
