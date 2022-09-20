@@ -100,7 +100,7 @@ function Home() {
           image={item.image} 
           title={item.title} 
           date={item.dateStart} 
-          location={item.city + ', ' + item.country} />
+          location={item.address.city} />
         )) : <LoadingSpinner/>}
       </div>
       

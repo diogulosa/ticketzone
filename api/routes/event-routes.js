@@ -8,6 +8,7 @@ import fs from 'fs'
 import path from 'path'
 import jwt from 'jsonwebtoken'
 import {isDatePassed} from './utils/event-utils.js'
+import { log } from 'console'
 
 const router = Router()
 
@@ -18,7 +19,7 @@ const upload = multer({ dest: pathToUpLoadFolder})
 router.get('/', async (req, res) => {
     let events = []
     //consultar todos os eventos   
-    let docs = await Event.find().where({status: 'active'}).populate('address')
+    let docs = await Event.find().where({status: 'active'}).populate('address').populate('category')
     //Actualizar status conforme data
     for(let item of docs){
         var finished = isDatePassed(item.dateStart)
