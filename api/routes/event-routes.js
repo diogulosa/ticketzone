@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
             await Category.findByIdAndUpdate(catId, {$inc: {count: -1}})
         }
     }
-    if(docs.length > 0){
+    if(docs){
         res.json({success: true, events: docs})
     }else{
         res.json({success: false, message: 'No events yet'})
