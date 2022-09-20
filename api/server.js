@@ -41,6 +41,7 @@ if(process.env.NODE_ENV === 'production'){
     app.get('*', (req, res) => {        
         res.sendFile(path.join(process.cwd(), 'client','build', 'index.html'))
     })
+    console.log('this is production environment');
 }else{
     app.get('/', (req, res) =>{
         res.send('API is running')

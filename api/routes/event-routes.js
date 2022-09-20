@@ -28,20 +28,8 @@ router.get('/', async (req, res) => {
             await Category.findByIdAndUpdate(catId, {$inc: {count: -1}})
         }
     }
-    for(let item of docs){
-        let address = item.address.address
-        let category = await Category.findById(item.category)
-        if(address){
-            let country = await Country.findById(address.country)
-            if(country){
-                let {_id, title, image, dateStart, timeStart,organizer} = item
-                events.push({_id, title, category: category.name, image, dateStart, organizer, timeStart, venue: address.name, address, city: address.city, country: country.name})
-            }
-            
-        }
-    }
-    if(events.length > 0){
-        res.json({success: true, events})
+    if(docs.length > 0){
+        res.json({success: true, events: docs})
     }else{
         res.json({success: false, message: 'No events yet'})
     }
