@@ -11,7 +11,7 @@ client/.pnp
 client/coverage
 
 # production
-client/build
+client/src
 
 # misc
 client/.DS_Store
