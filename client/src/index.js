@@ -27,13 +27,15 @@ import RegisterConfirm from './pages/RegisterConfirm';
 import InsertCountry from './pages/InsertCountry'
 import TicketsEdit from './components/layout/Dashboard/EditEvent/TicketsEdit';
 import ResetPassword from './pages/ResetPassword';
+import EntryScreen from './pages/EntryScreen';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <AuthProvider>
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<EntryScreen/>} />
+            <Route path="/home" element={<Home/>} />
             <Route path="/log-in" element={<Login/>}/>
             <Route path="/register" element={<Register/>} />
             <Route path="/reset-password/:id" element={<ResetPassword/>} />
