@@ -99,6 +99,10 @@
     .aside .btn{
         display: block;
     }
+
+    .aside .btn:hover{
+        border: 1px solid white;
+    }
 }
 
 

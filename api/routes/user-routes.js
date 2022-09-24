@@ -108,7 +108,7 @@ router.post('/validate', async (req, res) => {
     if(!password || password === '') return res.status(404).json({success: false, error: {field: 'password', value: 'Password field is required'}})
     const user = await User.findOne({email: email, active: true})
     if(!user){
-        return res.status(201).json({success: false, error: {field: 'email', value: 'No account was found associated with this email. '}})
+        return res.status(201).json({success: false, error: {field: 'email', value: 'Invalid credentials.'}})
     }
     bcrypt.compare(password, user.password, (err, success) => {
         if(err || !success){

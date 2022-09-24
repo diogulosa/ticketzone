@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.6d428d46.css",
+    "main.css": "/static/css/main.b455f9a4.css",
     "main.js": "/static/js/main.17222986.js",
     "static/media/material-icons-two-tone.woff": "/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
     "static/media/material-icons-two-tone.woff2": "/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
@@ -15,11 +15,11 @@
     "static/media/android-app-store.png": "/static/media/android-app-store.5f2d61b1aa29bb736c99.png",
     "static/media/apple-app-store.png": "/static/media/apple-app-store.2480a33766953ffc4b28.png",
     "index.html": "/index.html",
-    "main.6d428d46.css.map": "/static/css/main.6d428d46.css.map",
+    "main.b455f9a4.css.map": "/static/css/main.b455f9a4.css.map",
     "main.17222986.js.map": "/static/js/main.17222986.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d428d46.css",
+    "static/css/main.b455f9a4.css",
     "static/js/main.17222986.js"
   ]
 }
