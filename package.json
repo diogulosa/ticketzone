@@ -6,7 +6,6 @@
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js",
-    "build": "node api/server.js",
     "dev": "concurrently \"npm run build --prefix client\" \"nodemon api/server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
