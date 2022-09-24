@@ -9,7 +9,7 @@ const router = Router()
 
 router.post('/new', async (req, res) => {   
     const token = req.headers['x-access-token']
-    const user = jwt.verify(token, process.env.JWT_SECRET)
+    const user = jwt.verify(token, process.env.SHUSH)
     let doc 
     if(user){
         doc = await User.findOne({email: user.email})

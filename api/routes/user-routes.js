@@ -115,7 +115,7 @@ router.post('/validate', async (req, res) => {
             return res.status(401).json({success: success, error: {field: 'password', value: 'Invalid credentials.'}})
         }
         const {id} = user
-        const token = jwt.sign({email: user.email, pass: user.password}, process.env.JWT_SECRET)
+        const token = jwt.sign({email: user.email, pass: user.password}, process.env.SHUSH)
         return res.status(200).json({success: true, user: {id: id, email: email, name: `${user.fname} ${user.lname}`, auth_token: token}})
     })
 })

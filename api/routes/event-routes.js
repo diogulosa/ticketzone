@@ -178,7 +178,7 @@ router.post('/create', upload.single('image'), async (req, res) => {
 router.delete('/delete/:eventId', async (req, res) => {
     let eventId = req.params.eventId
     const token = req.headers['x-access-token'];
-    const verified = jwt.verify(token, process.env.JWT_SECRET)
+    const verified = jwt.verify(token, process.env.SHUSH)
     if(verified){
         let doc = await Event.findById(eventId)
         await Category.findByIdAndUpdate(doc._id, {$inc: {count: -1}})
@@ -212,7 +212,7 @@ router.get('/user/:id', async (req, res) => {
 router.post('/basic-info/:id', async (req, res) =>{
     const eventId = req.params.id
     const token = req.headers['x-access-token'];
-    const verified = jwt.verify(token, process.env.JWT_SECRET)
+    const verified = jwt.verify(token, process.env.SHUSH)
     if(verified){
         let cat = await Category.findById(req.body.category)
         const doc = await Event.findByIdAndUpdate(eventId, {title: req.body.title, organizer: req.body.organizer, category: req.body.category, tags: req.body.tags})
@@ -228,7 +228,7 @@ router.post('/basic-info/:id', async (req, res) =>{
 router.post('/location/:id', async (req, res) =>{
     const eventId = req.params.id
     const token = req.headers['x-access-token'];
-    const verified = jwt.verify(token, process.env.JWT_SECRET)
+    const verified = jwt.verify(token, process.env.SHUSH)
     if(verified){
         const doc = await Event.findById(eventId)
         let address = await Address.findByIdAndUpdate(doc.address, {name: req.body.venue, address: req.body.address, zipCode: req.body.zipCode, city: req.body.city, country: req.body.country})
@@ -241,7 +241,7 @@ router.post('/location/:id', async (req, res) =>{
 router.post('/date-and-time/:id', async (req, res) =>{
     const eventId = req.params.id
     const token = req.headers['x-access-token'];
-    const verified = jwt.verify(token, process.env.JWT_SECRET)
+    const verified = jwt.verify(token, process.env.SHUSH)
     if(verified){
         const doc = await Event.findByIdAndUpdate(eventId, {dateStart: req.body.dateStart, dateEnd: req.body.dateEnd, timeStart: req.body.timeStart, timeEnd: req.body.timeEnd})
         if(doc) return res.status(200).json({success: true, message: 'Event updated'})
@@ -255,7 +255,7 @@ router.post('/date-and-time/:id', async (req, res) =>{
 router.post('/details/:id', upload.single('image'), async (req, res) =>{
     const eventId = req.params.id
     const token = req.headers['x-access-token'];
-    const verified = jwt.verify(token, process.env.JWT_SECRET)
+    const verified = jwt.verify(token, process.env.SHUSH)
     if(verified && req.file){
         const doc = await Event.findByIdAndUpdate(eventId, {description: req.body.description, image: {data: fs.readFileSync(path.join(process.cwd() + '/uploads/' + req.file.filename )), contentType: req.file.mimetype}, eventURL: req.body.eventURL })
         if(doc) return res.status(200).json({success: true, message: 'Event updated'})
