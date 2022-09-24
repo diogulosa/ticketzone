@@ -1,9 +1,9 @@
 import { Router } from 'express';
+import validator from 'validator';
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import nodemailer from 'nodemailer'
 import User from '../models/user-model.js'
-import validator from 'validator'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 dotenv.config()
@@ -102,23 +102,22 @@ router.post('/create/:userId', async (req, res) =>{
 
 router.post('/validate', async (req, res) => {
     const {email, password} = req.body
-    if(email, password){
-        const user = await User.findOne({email: email, active: true})
-        if(!user){
-            return res.status(404).json({success: false, message: 'No account was found associated with this email. '})
-        }
-        bcrypt.compare(password, user.password, (err, success) => {
-            if(err || !success){
-                return res.status(400).json({success: success, message: err || "Password is incorrect"})
-            }
-            const {id} = user
-            const token = jwt.sign({email: user.email, pass: user.password}, process.env.JWT_SECRET)
-            return res.status(200).json({success: true, user: {id: id, email: email, name: `${user.fname} ${user.lname}`, auth_token: token}})
-        })
-    }else{
-        console.log(req.body)
-        res.json({success: false, message: 'Please fill in the required fields.'})
+    if(email === '' && password === '') return res.status(401).json({success: false, error: {field: 'all', value: 'Please fill in the required fields'}})
+    if(!email || email === '') return res.status(404).json({success: false, error: {field: 'email', value: 'Email field is required'}})
+    if(!validator.isEmail(email)) return res.status(404).json({success: false, error: {field: 'email', value: 'Please provide a valid email'}})
+    if(!password || password === '') return res.status(404).json({success: false, error: {field: 'password', value: 'Password field is required'}})
+    const user = await User.findOne({email: email, active: true})
+    if(!user){
+        return res.status(201).json({success: false, error: {field: 'email', value: 'No account was found associated with this email. '}})
     }
+    bcrypt.compare(password, user.password, (err, success) => {
+        if(err || !success){
+            return res.status(401).json({success: success, error: {field: 'password', value: 'Invalid credentials.'}})
+        }
+        const {id} = user
+        const token = jwt.sign({email: user.email, pass: user.password}, process.env.JWT_SECRET)
+        return res.status(200).json({success: true, user: {id: id, email: email, name: `${user.fname} ${user.lname}`, auth_token: token}})
+    })
 })
 
 router.put('/update/:userId', async (req, res) => {

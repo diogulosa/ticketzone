@@ -6,6 +6,8 @@ export function authReducer(state, action){
             return {...state, loading: false, loggedIn: true, userData: action.payload.user}
         case 'LOGIN_ERROR':
             return {...state, loading: false, message: action.message }
+        case 'SET_ERROR': 
+            return {...state, error: action.error, message: null, loading: false}
         case 'LOG_OUT':
             return {...state, loggedIn: false, userData: {}}
         default:
