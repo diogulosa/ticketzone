@@ -33,13 +33,13 @@ function Location({venue, onChangeVenue, zipCode, onChangeZipCode, city, onChang
     <section className='form-section'>
         <h2 className='heading'>Location</h2>
         <Input type="text" name="venue" label="Venue" onChange={onChangeVenue} value={venue} />
-        <Input type="text" name="address1" label="Address Line 1 *" onChange={onChangeAddress1} 
+        <Input type="text" name="address1" label="Address Line 1" onChange={onChangeAddress1} 
         value={address1} required />
         <Input type="text" name="address2" label="Address Line 2" onChange={onChangeAddress2}
         value={address2} />
-        <Input type="text" name="zipCode" label="Zip Code *" onChange={onChangeZipCode} value={zipCode} required />
-        <Input type="text" name="city" label="City *" onChange={onChangeCity} value={city} required/>
-        <Select name="country" label="Country *" options={countries} onChange={onChangeCountry} value={countryValue} required/>
+        <Input type="text" name="zipCode" label="Zip Code" onChange={onChangeZipCode} value={zipCode} required />
+        <Input type="text" name="city" label="City" onChange={onChangeCity} value={city} required/>
+        <Select name="country" label="Country" options={countries} onChange={onChangeCountry} value={countryValue} required/>
     </section>
   )
 }

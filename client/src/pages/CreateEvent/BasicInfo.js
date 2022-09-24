@@ -25,9 +25,9 @@ function BasicInfo({ onChangeTitle, titleValue, onChangeOrganizer, organizerValu
     return (
         <section className='form-section' id="basic-info">
                 <h2 className='heading'>Basic Info</h2>
-                <Input type="text" name="title" label="Event Title *" onChange={onChangeTitle} value={titleValue} required/>
-                <Input type="text" label="Organizer *" name="organizer" onChange={onChangeOrganizer} value={organizerValue} required />
-                <Select label="Category *" name="category" options={categories} onChange={onChangeCategory} value={categoryValue} required/>
+                <Input type="text" name="title" label="Event Title" onChange={onChangeTitle} value={titleValue} required/>
+                <Input type="text" label="Organizer" name="organizer" onChange={onChangeOrganizer} value={organizerValue} required />
+                <Select label="Category" name="category" options={categories} onChange={onChangeCategory} value={categoryValue} required/>
                 <h3>Tags</h3>
                 <p>Add relevant tags and help potential attendees to find your event</p>
                 <Input type="text" name="tags" id="tags" label="Press Enter to add tag" onKeyDown={addTag} onChange={handleTagChange} value={tagInputValue} />
