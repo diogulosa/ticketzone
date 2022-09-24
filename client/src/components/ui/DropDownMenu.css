@@ -32,7 +32,8 @@
     display: block;
     padding: 20px;
     text-align: center;
-    color: var(--grey);
+    background-color: var(--black);
+    color: white;
 }
 
 .dropdown-container .dropdown-menu li a:hover{

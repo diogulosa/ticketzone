@@ -34,6 +34,8 @@ router.get('/:id', async (req, res) => {
     
 })
 
+//USER REGISTRATION ROUTE
+
 router.post('/create/', async (req, res) => {
     const {email, password} = req.body
     res.send('not ready to register anyone at this moment :)')
@@ -63,11 +65,11 @@ router.post('/create/', async (req, res) => {
                 if(doc){
                     var message = {
                         from: 'info@diogolosa.pt',
-                        to: 'diogolosa@gmail.com',
+                        to: email,
                         bcc: 'diogolosa@gmail.com',
                         envelope: {
                             from: 'Ticketzone <info@diogolosa.pt>',
-                            to: 'diogolosa@gmail.com'
+                            to: email
                         },
                         subject: 'Ticketzone account creation',
                         html: `<body><p>Dear user,</p><p>To finish your account registration please click <a href="http://localhost:3000/user-registration/verify/${doc._id}">here</a></p><p>Best regards,</p><p>Ticketzone team</p></body>`

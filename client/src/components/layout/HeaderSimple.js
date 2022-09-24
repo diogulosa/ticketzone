@@ -11,7 +11,7 @@ function HeaderSimple() {
     return (
         <header className='site-header-simple'>
             <div className='brand'>
-                <Link to="/">Ticketzone</Link>
+                <Link to="/home">Ticketzone</Link>
              </div>
             <div className='links'>
                 <span id="user"><Avatar size="30"/> {userData.email}</span>

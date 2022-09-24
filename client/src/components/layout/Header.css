@@ -11,8 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: 'black';
-    border-bottom: 1px solid #f0e000;
+    color: var(--black);
 }
 
 @media screen and (min-width: 1000px) {
@@ -75,11 +74,6 @@
 .site-header .links > a{
     display: block;
     padding: 20px 10px;
-    border-bottom: 3px solid transparent;
-}
-
-.site-header .links > a:hover{
-    border-bottom: 3px solid var(--brandBlue);
 }
 
 .site-header .links .dropdown-container .drop-down-menu{
@@ -95,6 +89,11 @@
 
 .site-header .links .menu-header .avatar{
     margin-right: 10px;
+}
+
+.site-header .dropdown-container .dropdown-menu ul li a{
+    background-color: var(--black);
+    color: white
 }
 
 .site-header #mobile-menu-btn{
@@ -132,7 +131,6 @@
     display: block;
     padding: 20px;
     font-weight: 600;
-    border-bottom: 1px solid #f0e000;
 }
 
 /* .links-mobile a:hover, .links-mobile .menu-header:hover{
@@ -170,7 +168,6 @@
     display: block;
     width: 100%;
     background-color: var(--brand);
-    border-bottom: 1px solid #f0e000;
     text-align: left;
 }
 

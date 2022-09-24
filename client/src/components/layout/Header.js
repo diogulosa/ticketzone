@@ -42,7 +42,7 @@ function Header() {
     <div className='site-header-wrapper'>
     <header className='site-header'>
       <div className='brand'>
-          {useLogo ? <SpinningLogo size={30}/> : <Link to="/">Ticketzone</Link>}
+          {useLogo ? <SpinningLogo size={30}/> : <Link to="/home">Ticketzone</Link>}
       </div>
       
       <div className='links-container'>
@@ -50,19 +50,15 @@ function Header() {
             <Link to="/events/create">+ Create event</Link>
 
             <DropDownMenu header="Organize">
-              <ul>
                 <li><Link to="/why-us">Why Ticketzone?</Link></li>
                 <li><Link to="/pricing">Pricing</Link></li>
-              </ul>
             </DropDownMenu>
           
             {loggedIn ? null : <><Link className="auth" to="/log-in">Log in</Link><Link className="auth" to="/register">Sign up</Link></>}
           
             {loggedIn ? <DropDownMenu header={<>{userData.email}</>}>
-              <ul>
                 <li><Link to="/dashboard">Account</Link></li>
                 <li><Link to="/" onClick={handleLogOut}>Log out</Link></li>
-              </ul>
             </DropDownMenu> : null}
         </div>
         <Button onClick={toggleMenuVisibility} id="mobile-menu-btn"><span className='material-icons'>menu</span></Button>

@@ -5,7 +5,7 @@ import './SpinningLogo.css'
 function SpinningLogo({size}) {
   return (
     <div className='logo-container'>
-      <Link to="/">
+      <Link to="/home">
       <span className='logo'>T</span>
       <div className='curtain'></div>
       <span className='logo-text'>icketzone</span>

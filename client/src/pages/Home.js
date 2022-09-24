@@ -5,13 +5,17 @@ import Jumbotron from '../components/ui/Jumbotron'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import { arrayBufferToBase64 } from '../utils'
 import FilterButton from '../components/ui/FilterButton'
+import { useAuthState } from '../store/auth'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 function Home() {
 
   const [events, setEvents] = useState([])
   const [categories, setCategories] = useState()
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
   
+  const {loggedIn}  = useAuthState()
 
   async function getCategories(){
     let res = await fetch('categories')
@@ -48,11 +52,16 @@ function Home() {
   }
 
   useEffect(()=>{
-    if(events.length === 0){
-      getEvents()
+    if(!loggedIn){
+      navigate('/')
+    }else{
+      if(events.length === 0){
+        getEvents()
+      }
+      getCategories()
     }
-    getCategories()
-  },[])
+    
+  },[loggedIn])
   
   function handleOptionClick(e){
     e.preventDefault()

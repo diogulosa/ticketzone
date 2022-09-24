@@ -36,8 +36,8 @@ root.render(
           <Routes>
             <Route path="/" element={<EntryScreen/>} />
             <Route path="/home" element={<Home/>} />
-            <Route path="/log-in" element={<Login/>}/>
-            <Route path="/register" element={<Register/>} />
+            {/* <Route path="/log-in" element={<Login/>}/>
+            <Route path="/register" element={<Register/>} /> */}
             <Route path="/reset-password/:id" element={<ResetPassword/>} />
             <Route path="/pricing" element={<Pricing/>} />
             <Route path="/events/create"  element={<CreateEvent/>} />

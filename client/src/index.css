@@ -269,3 +269,7 @@ a.has-icon span{
   background-color: var(--black);
   color: white
 }
+
+.bg-black input{
+  color: white
+}
