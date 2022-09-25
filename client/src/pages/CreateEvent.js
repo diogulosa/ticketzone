@@ -23,7 +23,7 @@ function CreateEvent() {
     const [address, setAddress] = useState({line1: '', line2: '', complete: ''})
     const [step, setStep] = useState(1)
     const [errorMsg, setErrorMsg] = useState('')
-    const [src, setSrc] = useState()
+    const [src, setSrc] = useState(true)
     const [nextButtonDisabled, setNextButtonDisabled] = useState(true)
 
     
@@ -54,8 +54,7 @@ function CreateEvent() {
         eventURL: ''
     })
 
-    const disableNext = useCallback(
-        () => {
+    function disableNext(){
           switch (step) {
             case 1:
                 if(formData.title !== '' && formData.organizer !== '' && formData.category !== ''){
@@ -79,9 +78,7 @@ function CreateEvent() {
               default:
                   return setNextButtonDisabled(true);
           }
-        },
-        [formData, step],
-      )
+        }
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -136,8 +133,8 @@ function CreateEvent() {
 
     useEffect(() => {
         disableNext()
-      if(!userData.auth_token) navigate('/log-in')
-    }, [navigate, userData, disableNext])
+        if(!userData.auth_token) navigate('/')
+    }, [formData])
 
     function handleFormChange(){
         setErrorMsg('')
@@ -148,9 +145,11 @@ function CreateEvent() {
         e.stopPropagation()
         //let _URL = window.URL || window.webkitURL
         let file = e.dataTransfer.files[0];
+        console.log(file);
         let fileSize = file.size / 1024 /1024
         if(file){
           if(fileSize < 2 && (file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png')){
+            setFormData({...formData, image: file})
             const fileReader = new FileReader()
             fileReader.addEventListener('load', () => {
                 setSrc(fileReader.result.toString())
@@ -158,7 +157,7 @@ function CreateEvent() {
             fileReader.readAsDataURL(file)
             setErrorMsg(false)
           }else{
-            setErrorMsg('Images must be no bigger then 2MB. Accepted file types: .jpeg, .jpg or .png')
+            setSrc(false)
           }
         }
       }
@@ -173,7 +172,8 @@ function CreateEvent() {
     let file = document.getElementById("inputfile").files[0];
     let fileSize = file.size / 1024 /1024
     if(file){
-        if(fileSize < 1 && (file.type === 'image/jpeg' || file.type === 'image/png')){
+        if(fileSize < 2 && (file.type === 'image/jpeg' || file.type === 'image/png')){
+            setFormData({...formData, image: file})
             const fileReader = new FileReader()
             fileReader.addEventListener('load', () => {
                 setSrc(fileReader.result.toString())
@@ -182,7 +182,7 @@ function CreateEvent() {
             setErrorMsg(false)
             
         }else{
-        setErrorMsg('Images must be no bigger then 2MB. Accepted file types: .jpeg, .jpg or .png')
+            setSrc(false)
         }
     }
     }
@@ -265,7 +265,7 @@ function CreateEvent() {
                 />}
 
                 {/* DETAILS */}
-                {step === 5 && <Details handleImageDrop={handleImageDrop} handleInputFileClick={handleInputFileClick} handleInputChange={handleInputChange} message={errorMsg? errorMsg : null} onChangeDescription={ e => setFormData({...formData, description: e.target.value})} descValue={formData.description} onChangeURL={e => setFormData({...formData, eventURL: e.target.value})} valueURL={formData.eventURL} >
+                {step === 5 && <Details handleImageDrop={handleImageDrop} handleInputFileClick={handleInputFileClick} handleInputChange={handleInputChange} message={errorMsg? errorMsg : null} onChangeDescription={ e => setFormData({...formData, description: e.target.value})} descValue={formData.description} onChangeURL={e => setFormData({...formData, eventURL: e.target.value})} valueURL={formData.eventURL} hasError={!src}>
                     {src && <img src={src} alt="upload file"/>}
                 </Details>}
 

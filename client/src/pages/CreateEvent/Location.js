@@ -37,8 +37,10 @@ function Location({venue, onChangeVenue, zipCode, onChangeZipCode, city, onChang
         value={address1} required />
         <Input type="text" name="address2" label="Address Line 2" onChange={onChangeAddress2}
         value={address2} />
-        <Input type="text" name="zipCode" label="Zip Code" onChange={onChangeZipCode} value={zipCode} required />
-        <Input type="text" name="city" label="City" onChange={onChangeCity} value={city} required/>
+        <div className='input-group'>
+            <Input type="text" name="zipCode" label="Zip Code" onChange={onChangeZipCode} value={zipCode} required />
+            <Input type="text" name="city" label="City" onChange={onChangeCity} value={city} required/>
+        </div>
         <Select name="country" label="Country" options={countries} onChange={onChangeCountry} value={countryValue} required/>
     </section>
   )

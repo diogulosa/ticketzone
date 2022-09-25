@@ -13,7 +13,7 @@ function Tickets({ticketName, onChangeTicketName, ticketPrice, onChangeTicketPri
         <section className='form-section'>
             <h2 className='heading'>Bilhetes</h2>
             <Input type="text" name="ticketName" label="Ticket name" onChange={onChangeTicketName} value={ticketName} required />
-            <div className='flex-container'>
+            <div className='input-group'>
                 <Input className='half-w' type="number" name="ticketPrice" label="Ticket Price" onChange={onChangeTicketPrice} value={ticketPrice} required />
                 <Input className='half-w' type="number" name="ticketQty" label="Tickets Available" step="1" onKeyDown={handleNumberInput} onInput={handleNumberInput} onChange={onChangeTicketQty} value={ticketQty} required />
             </div>

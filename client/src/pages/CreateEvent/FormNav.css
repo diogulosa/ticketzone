@@ -24,3 +24,12 @@
 .form-nav .nav-btn:hover{
     background-color: var(--brand);
 }
+
+.save-publish{
+    display: flex;
+    flex-direction: row;
+}
+
+.save-publish button:first-child{
+    margin-right: 20px;
+}

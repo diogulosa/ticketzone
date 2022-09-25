@@ -52,6 +52,11 @@
     margin-bottom: 30px;
 }
 
+.se-main .tag-pills li{
+    color: var(--cyan);
+    border-color: var(--cyan)
+}
+
 
 /*info*/
 
@@ -99,10 +104,6 @@
     .aside .btn{
         display: block;
         cursor: pointer;
-    }
-
-    .aside .btn:hover{
-        border: 1px solid white;
     }
 }
 
@@ -161,9 +162,10 @@
 }
 
 #buy-tickets .btn{
-    background-color: var(--red);
-    color: white;
+    background-color: var(--cyan);
+    color: var(--black);
     width: 100%;
+    padding: 20px 0;
 }
 
 @media screen and (min-width: 1000px) {

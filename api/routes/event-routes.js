@@ -8,12 +8,20 @@ import fs from 'fs'
 import path from 'path'
 import jwt from 'jsonwebtoken'
 import {isDatePassed} from './utils/event-utils.js'
-import { log } from 'console'
 
 const router = Router()
 
 const pathToUpLoadFolder = path.join(process.cwd(), 'uploads')
-const upload = multer({ dest: pathToUpLoadFolder})
+var storage = multer.diskStorage(
+    {
+        destination: pathToUpLoadFolder,
+        filename: function ( req, file, cb ) {
+            console.log(file);
+            cb( null, file.originalname + '.' + file.mimetype);
+        }
+    }
+);
+const upload = multer({ storage: storage})
 
 //GET ALL EVENTS BY 'ACTIVE' STATUS
 router.get('/', async (req, res) => {
@@ -76,7 +84,6 @@ router.get('/:id', async (req, res) => {
 
 //CREATE EVENT
 router.post('/create', upload.single('image'), async (req, res) => {
-
     let tags
     if(req.body.tags){
         tags = req.body.tags.split(',')
@@ -124,7 +131,7 @@ router.post('/create', upload.single('image'), async (req, res) => {
                 privacy: req.body.privacy,
                 privacySettings: req.body.privacySettings,
                 createdBy: req.body.createdBy,
-                image: {data: fs.readFileSync(pathToFile + req.file.filename), contentType: req.file.mimetype},
+                image: {data: fs.readFileSync(pathToFile + req.file.originalname), contentType: req.file.mimetype},
                 eventURL: req.body.eventURL
             }
             try {
@@ -138,6 +145,7 @@ router.post('/create', upload.single('image'), async (req, res) => {
             }
         } 
     }else{
+        console.log(req.file);
         const eventData = {
             title: req.body.title,
             organizer: req.body.organizer,
@@ -159,7 +167,7 @@ router.post('/create', upload.single('image'), async (req, res) => {
             privacy: req.body.privacy,
             privacySettings: req.body.privacySettings,
             createdBy: req.body.createdBy,
-            image: {data: fs.readFileSync(pathToFile + req.file.filename), contentType: req.file.mimetype},
+            image: {data: fs.readFileSync(pathToFile + req.file.originalname), contentType: req.file.mimetype},
             eventURL: req.body.eventURL
         }
         try {
