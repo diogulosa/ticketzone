@@ -1,11 +1,15 @@
 import React from 'react'
 import './SingleEvent.css'
+import {Helmet} from "react-helmet";
 
 
 function SingleEvent(props) {
   
   return (
       <>
+      <Helmet>
+        <meta property="og:image" itemprop="image" content="%PUBLIC_URL%/facebook-image.jpg" />
+      </Helmet>
         <div className='event-details-bg-image'>
           <img src={props.image} alt={`Ticketzone | ${props.title}`}/>
         </div>
