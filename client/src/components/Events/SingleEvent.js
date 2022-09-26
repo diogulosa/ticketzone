@@ -8,7 +8,7 @@ function SingleEvent(props) {
   return (
       <>
       <Helmet>
-        <meta property="og:image" itemprop="image" content="%PUBLIC_URL%/facebook-image.jpg" />
+        <meta property="og:image" itemprop="image" content="%PUBLIC_URL%/metallica.jpeg" />
       </Helmet>
         <div className='event-details-bg-image'>
           <img src={props.image} alt={`Ticketzone | ${props.title}`}/>
