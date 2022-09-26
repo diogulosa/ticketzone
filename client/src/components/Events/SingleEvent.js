@@ -8,6 +8,7 @@ function SingleEvent(props) {
   return (
       <>
       <Helmet>
+        <meta property='title' content={props.title} />
         <meta property="og:image" itemprop="image" content="%PUBLIC_URL%/metallica.jpeg" />
       </Helmet>
         <div className='event-details-bg-image'>
